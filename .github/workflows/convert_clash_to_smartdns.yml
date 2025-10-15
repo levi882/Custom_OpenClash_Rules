@@ -1,4 +1,4 @@
-name: Convert Clash Lists to SmartDNS
+name: Convert Clash Lists to SmartDNS (Enhanced)
 
 on:
   push:
@@ -11,23 +11,33 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Convert Clash list files to SmartDNS
-        run: |
-          # Create the output directory if it doesn't exist
-          mkdir -p rule
 
+      - name: Convert Clash list files to SmartDNS format
+        run: |
+          mkdir -p rule
           changed=false
-          # Loop over all .list files inside the rule directory
+
           for file in rule/*.list; do
-            # Skip if no files match
             [ -f "$file" ] || continue
-            # Derive output filename: replace .list with _smartdns.txt
             base_name=$(basename "${file%.list}")
             output="rule/${base_name}_smartdns.txt"
 
-            echo "Converting $file to $output"
-            # Extract domain entries from DOMAIN* rules and keep only the domain part after the comma
-            grep -E '^DOMAIN' "$file" | cut -d',' -f2 | sort -u > "$output"
+            echo "Converting $file → $output"
+
+            # 自动转换逻辑：
+            # DOMAIN-SUFFIX → domain-suffix 或裸域名
+            # DOMAIN-KEYWORD → SmartDNS 通配符格式 (*-keyword.*)
+            # DOMAIN → 精确域名
+            awk -F',' '
+              BEGIN{IGNORECASE=1}
+              /^DOMAIN-SUFFIX/  {print $2}
+              /^DOMAIN-KEYWORD/ {print "*-"$2".*"}
+              /^DOMAIN,/        {print $2}
+            ' "$file" | sort -u > "$output"
+
+            echo "Generated $output:"
+            head -n 10 "$output"
+            echo
             changed=true
           done
 
@@ -40,11 +50,9 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          # Add generated files if they exist
           if [ -n "$(git status --porcelain rule/*_smartdns.txt || true)" ]; then
             git add rule/*_smartdns.txt
-            git commit -m "Auto convert Clash lists to SmartDNS format"
+            git commit -m "Auto convert Clash lists → SmartDNS format (enhanced wildcard)"
             git push
           else
             echo "No SmartDNS list changes to commit."
-          fi
