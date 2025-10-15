@@ -1,0 +1,50 @@
+name: Convert Clash Lists to SmartDNS
+
+on:
+  push:
+    paths:
+      - 'rule/*.list'
+  workflow_dispatch:
+
+jobs:
+  convert:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Convert Clash list files to SmartDNS
+        run: |
+          # Create the output directory if it doesn't exist
+          mkdir -p rule
+
+          changed=false
+          # Loop over all .list files inside the rule directory
+          for file in rule/*.list; do
+            # Skip if no files match
+            [ -f "$file" ] || continue
+            # Derive output filename: replace .list with _smartdns.txt
+            base_name=$(basename "${file%.list}")
+            output="rule/${base_name}_smartdns.txt"
+
+            echo "Converting $file to $output"
+            # Extract domain entries from DOMAIN* rules and keep only the domain part after the comma
+            grep -E '^DOMAIN' "$file" | cut -d',' -f2 | sort -u > "$output"
+            changed=true
+          done
+
+          if [ "$changed" = false ]; then
+            echo "No .list files found to convert."
+          fi
+
+      - name: Commit and push SmartDNS lists
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          # Add generated files if they exist
+          if [ -n "$(git status --porcelain rule/*_smartdns.txt || true)" ]; then
+            git add rule/*_smartdns.txt
+            git commit -m "Auto convert Clash lists to SmartDNS format"
+            git push
+          else
+            echo "No SmartDNS list changes to commit."
+          fi
