@@ -1,4 +1,4 @@
-name: Convert Clash Lists to SmartDNS (Full Enhanced)
+name: Convert Clash Lists to SmartDNS (Enhanced)
 
 on:
   push:
@@ -17,76 +17,99 @@ jobs:
         run: |
           mkdir -p rule
           changed=false
+          summary=""
 
           for file in rule/*.list; do
-            if [ -f "$file" ]; then
-              base_name=$(basename "${file%.list}")
-              output="rule/${base_name}_smartdns.txt"
-              echo "::group::Converting $file → $output"
+            [ -f "$file" ] || continue
+            base_name=$(basename "${file%.list}")
+            output="rule/${base_name}_smartdns.txt"
 
-              # ==========================
-              # 🔧 通用转换逻辑
-              # ==========================
-              awk '
-                BEGIN { IGNORECASE=1 }
-                # full: 表示精确匹配
-                /^full:/ {
-                  sub(/^full:/, "");
-                  print $0;
-                  next
-                }
+            echo "::group::Converting $file → $output"
 
-                # DOMAIN-SUFFIX
-                /^DOMAIN-SUFFIX/ {
-                  split($0,a,",");
-                  print a[2];
-                  next
-                }
+            # 初始化计数器
+            suf=0; key=0; dom=0; full=0; reg=0; cidr=0; skip=0
 
-                # DOMAIN-KEYWORD
-                /^DOMAIN-KEYWORD/ {
-                  split($0,a,",");
-                  print "*-"a[2]".*";
-                  next
-                }
+            awk '
+              BEGIN { IGNORECASE=1 }
+              # full: 精确匹配
+              /^full:/ {
+                sub(/^full:/, "");
+                print $0;
+                full++;
+                next
+              }
 
-                # DOMAIN (精确匹配)
-                /^DOMAIN,/ {
-                  split($0,a,",");
-                  print a[2];
-                  next
-                }
+              # DOMAIN-SUFFIX
+              /^DOMAIN-SUFFIX/ {
+                split($0,a,",");
+                print a[2];
+                suf++;
+                next
+              }
 
-                # regexp: 转换为注释保留
-                /^regexp:/ {
-                  sub(/^regexp:/,"");
-                  print "# regexp:"$0;
-                  next
-                }
+              # DOMAIN-KEYWORD
+              /^DOMAIN-KEYWORD/ {
+                split($0,a,",");
+                print "*-"a[2]".*";
+                key++;
+                next
+              }
 
-                # 注释行或空行原样保留
-                /^[[:space:]]*#/ || /^[[:space:]]*$/ {
-                  print $0;
-                  next
-                }
+              # DOMAIN（精确）
+              /^DOMAIN,/ {
+                split($0,a,",");
+                print "-."a[2];
+                dom++;
+                next
+              }
 
-                # 其他未知格式 → 注释掉
-                { print "# skipped: "$0 }
-              ' "$file" | sort -u > "$output"
+              # regexp: → 注释保留
+              /^regexp:/ {
+                sub(/^regexp:/,"");
+                print "# regexp:"$0;
+                reg++;
+                next
+              }
 
-              # ==========================
-              # 输出预览
-              # ==========================
-              echo "Generated $output (first 10 lines):"
-              head -n 10 "$output"
-              echo "::endgroup::"
+              # IP-CIDR → 注释保留
+              /^IP-CIDR/ {
+                print "# skipped (CIDR): "$0;
+                cidr++;
+                next
+              }
+
+              # 注释或空行
+              /^[[:space:]]*#/ || /^[[:space:]]*$/ {
+                print $0;
+                next
+              }
+
+              # 其他未知
+              { print "# skipped: "$0; skip++; next }
+
+              END {
+                printf("# Stats: SUF=%d KEY=%d DOM=%d FULL=%d REG=%d CIDR=%d SKIP=%d\n", suf,key,dom,full,reg,cidr,skip) > "/dev/stderr"
+              }
+            ' "$file" | sort -u > "$output" 2> >(tee /tmp/stats.txt >&2)
+
+            echo "Generated $output (preview):"
+            head -n 10 "$output" || true
+            echo "::endgroup::"
+
+            if [ -s "$output" ]; then
               changed=true
+              stats=$(tail -n1 /tmp/stats.txt | tr -d '#')
+              summary+="${base_name}(${stats}) "
             fi
           done
 
           if [ "$changed" = false ]; then
-            echo "No .list files found to convert."
+            echo "No valid .list files found to convert."
+            exit 0
           fi
+
+          echo "Summary: $summary"
+          echo "$summary" > summary.log
 
       - name: Commit and push SmartDNS lists
         shell: bash
@@ -95,8 +118,9 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
           if [ -n "$(git status --porcelain rule/*_smartdns.txt || true)" ]; then
+            summary=$(cat summary.log)
             git add rule/*_smartdns.txt
-            git commit -m "Auto convert Clash lists → SmartDNS format (Full Enhanced)"
+            git commit -m "Auto convert Clash → SmartDNS (Pro Enhanced) [$summary]"
             git push
           else
             echo "No SmartDNS list changes to commit."
