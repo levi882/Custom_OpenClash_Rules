@@ -13,32 +13,33 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Convert Clash list files to SmartDNS format
+        shell: bash
         run: |
           mkdir -p rule
           changed=false
 
           for file in rule/*.list; do
-            [ -f "$file" ] || continue
-            base_name=$(basename "${file%.list}")
-            output="rule/${base_name}_smartdns.txt"
+            if [ -f "$file" ]; then
+              base_name=$(basename "${file%.list}")
+              output="rule/${base_name}_smartdns.txt"
+              echo "Converting $file → $output"
 
-            echo "Converting $file → $output"
+              # 转换逻辑：
+              # DOMAIN-SUFFIX → 后缀匹配
+              # DOMAIN-KEYWORD → SmartDNS 通配符 (*-keyword.*)
+              # DOMAIN → 精确域名
+              awk -F',' '
+                BEGIN {IGNORECASE=1}
+                /^DOMAIN-SUFFIX/  {print $2}
+                /^DOMAIN-KEYWORD/ {print "*-"$2".*"}
+                /^DOMAIN,/        {print $2}
+              ' "$file" | sort -u > "$output"
 
-            # 自动转换逻辑：
-            # DOMAIN-SUFFIX → domain-suffix 或裸域名
-            # DOMAIN-KEYWORD → SmartDNS 通配符格式 (*-keyword.*)
-            # DOMAIN → 精确域名
-            awk -F',' '
-              BEGIN{IGNORECASE=1}
-              /^DOMAIN-SUFFIX/  {print $2}
-              /^DOMAIN-KEYWORD/ {print "*-"$2".*"}
-              /^DOMAIN,/        {print $2}
-            ' "$file" | sort -u > "$output"
-
-            echo "Generated $output:"
-            head -n 10 "$output"
-            echo
-            changed=true
+              echo "Generated $output (preview):"
+              head -n 10 "$output"
+              echo ""
+              changed=true
+            fi
           done
 
           if [ "$changed" = false ]; then
@@ -46,6 +47,7 @@ jobs:
           fi
 
       - name: Commit and push SmartDNS lists
+        shell: bash
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -56,3 +58,4 @@ jobs:
             git push
           else
             echo "No SmartDNS list changes to commit."
+          fi
