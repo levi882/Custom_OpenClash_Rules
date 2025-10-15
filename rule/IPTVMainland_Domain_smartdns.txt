@@ -1,3 +1,12 @@
+# AUTHOR: blackmatrix7
+# DOMAIN: 990
+# NAME: IPTVMainland
+# REPO: https://github.com/blackmatrix7/ios_rule_script
+# TOTAL: 2297
+# UPDATED: 2024-07-03 16:18:26
+# 中国大陆地区 IPTV 域名列表
+# 必须搭配 OpenClash 的“绕过大陆”功能使用
+# 每隔8小时更新一次，从 blackmatrix7/ios_rule_script 项目拉取，并去除所有 IP 类规则，仅保留域名规则
 1-fss24-s0.streamhoster.com
 1.cache.applinzi.com
 12371alic.v.myalicdn.com

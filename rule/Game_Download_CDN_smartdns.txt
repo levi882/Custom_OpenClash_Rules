@@ -1,3 +1,99 @@
+
+# AUTHOR: Aethersailor
+# Battle.net - 战网下载[Akamai]
+# Battle.net - 战网下载[CloudN]
+# Battle.net - 战网下载[IP 规则]
+# Battle.net - 战网下载[blizzard]
+# Battle.net - 战网下载[网易国服]
+# EA Desktop - 游戏下载[akamai-CDN]
+# Epic Game - 游戏下载[CloudFlare]
+# Epic Game - 游戏下载[Fastly]
+# Epic Game - 游戏下载[中国区]
+# Epic Games - 游戏下载[Akamai]
+# Epic Games - 游戏下载[Azamon]
+# GOG - 客户端更新/游戏下载[Akamai]
+# GOG - 客户端更新/游戏下载[Fastly]
+# NAME: Game_Download_CDN
+# REPO: https://github.com/Aethersailor/Custom_OpenClash_Rules
+# Rockstar Launcher - 客户端更新/游戏更新/下载
+# Roti - 游戏更新/下载
+# Steam - 游戏下载(非中国下载区) - Fastly
+# Steam - 游戏下载(非中国下载区) - akamai
+# Steam - 游戏下载(非中国下载区) - edgecast
+# Steam - 游戏下载(非中国下载区) - 网宿(国际)
+# Steam - 游戏下载/社区实况直播(非中国下载区) - Valve
+# Ubisoft Connect(Uplay) - 游戏下载(中国大陆地区)
+# Ubisoft Connect(Uplay) - 游戏下载(国际) - A
+# Ubisoft Connect(Uplay) - 游戏下载(国际) - B
+# UsbEAm Hosts Editor 下载地址：https://www.dogfight360.com/blog/18627/
+# XBOX/Microsoft Store - 游戏下载[国际]
+# skipped: DOMAIN-REGEX,^(gog-cdn-fastly(-cp77)?|recommendations-api|sections|galaxy-promos|marketing-sections)\.gog\.com$
+# skipped: DOMAIN-REGEX,^(lol|ks-foundation|riot-client|mock-game|valorant|wildrift|ares|bacon|ritoplus|global)?(\.secure)?\.dyn\.riotcdn\.net$
+# skipped: DOMAIN-REGEX,^(pf-cdn-content-prod|khmarketcdn|kittyhawk2-prod|cdn-prod-sr-(live-marketplace-endpoint|live-cds-endpoint|weather))\.azureedge\.net$
+# skipped: DOMAIN-REGEX,^(xblmodassets2|content[12])\.prod\.catalog\.playfab\.com$
+# skipped: DOMAIN-REGEX,^[a-z]{2}\.cdn\.blizzard\.com$
+# skipped: DOMAIN-REGEX,^blzdist-[a-z]{2}([a-z])?\.necdn\.leihuo\.netease\.com$
+# skipped: DOMAIN-REGEX,^cache\d(\d)?-[a-z]{3}\d\.steamcontent\.com$
+# skipped: DOMAIN-REGEX,^download[1-9]?\.epicgames\.com$
+# skipped: IP-CIDR,104.75.169.19/32,no-resolve
+# skipped: IP-CIDR,137.221.64.0/24,no-resolve
+# skipped: IP-CIDR,8.251.135.126/32,no-resolve
+# skipped: IP-CIDR,8.251.246.126/32,no-resolve
+# 主流游戏平台外服下载节点规则
+# 建议使用 geosite:category-game-platforms-download
+# 微软飞行模拟 2020/2024 游戏客户端更新
+# 感谢原作者 dogfight360|羽翼城 大佬！
+# 最终幻想14(国际版) 游戏更新/下载
+# 本规则不再更新
+# 正则匹配可能有误，出现问题请及时反馈
+# 规则内容已合并至 v2fly/domain-list-community 
+# 规则在本项目中可正常生效，其他使用环境下请自行排障
+# 规则数据来自 UsbEAm Hosts Editor
+# 请确保你使用的订阅转换后端以及 Clash 支持正则规则！
+#DOMAIN-SUFFIX,ares.secure.dyn.riotcdn.net
+#DOMAIN-SUFFIX,bacon.secure.dyn.riotcdn.net
+#DOMAIN-SUFFIX,blzdist-di.necdn.leihuo.netease.com
+#DOMAIN-SUFFIX,blzdist-hs.necdn.leihuo.netease.com
+#DOMAIN-SUFFIX,blzdist-ow.necdn.leihuo.netease.com
+#DOMAIN-SUFFIX,blzdist-phx.necdn.leihuo.netease.com
+#DOMAIN-SUFFIX,blzdist-wow.necdn.leihuo.netease.com
+#DOMAIN-SUFFIX,cdn-prod-sr-live-cds-endpoint.azureedge.net
+#DOMAIN-SUFFIX,cdn-prod-sr-live-marketplace-endpoint.azureedge.net
+#DOMAIN-SUFFIX,cdn-prod-sr-weather.azureedge.net
+#DOMAIN-SUFFIX,content1.prod.catalog.playfab.com
+#DOMAIN-SUFFIX,content2.prod.catalog.playfab.com
+#DOMAIN-SUFFIX,download.epicgames.com
+#DOMAIN-SUFFIX,download2.epicgames.com
+#DOMAIN-SUFFIX,download3.epicgames.com
+#DOMAIN-SUFFIX,download4.epicgames.com
+#DOMAIN-SUFFIX,dyn.riotcdn.net
+#DOMAIN-SUFFIX,eu.cdn.blizzard.com
+#DOMAIN-SUFFIX,galaxy-promos.gog.com
+#DOMAIN-SUFFIX,global.dyn.riotcdn.net
+#DOMAIN-SUFFIX,gog-cdn-fastly-cp77.gog.com
+#DOMAIN-SUFFIX,gog-cdn-fastly.gog.com
+#DOMAIN-SUFFIX,khmarketcdn.azureedge.net
+#DOMAIN-SUFFIX,kittyhawk2-prod.azureedge.net
+#DOMAIN-SUFFIX,kr.cdn.blizzard.com
+#DOMAIN-SUFFIX,ks-foundation.dyn.riotcdn.net
+#DOMAIN-SUFFIX,ks-foundation.secure.dyn.riotcdn.net
+#DOMAIN-SUFFIX,lol.dyn.riotcdn.net
+#DOMAIN-SUFFIX,lol.secure.dyn.riotcdn.net
+#DOMAIN-SUFFIX,marketing-sections.gog.com
+#DOMAIN-SUFFIX,mock-game.dyn.riotcdn.net
+#DOMAIN-SUFFIX,mock-game.secure.dyn.riotcdn.net
+#DOMAIN-SUFFIX,pf-cdn-content-prod.azureedge.net
+#DOMAIN-SUFFIX,recommendations-api.gog.com
+#DOMAIN-SUFFIX,riot-client.dyn.riotcdn.net
+#DOMAIN-SUFFIX,riot-client.secure.dyn.riotcdn.net
+#DOMAIN-SUFFIX,ritoplus.secure.dyn.riotcdn.net
+#DOMAIN-SUFFIX,sections.gog.com
+#DOMAIN-SUFFIX,us.cdn.blizzard.com
+#DOMAIN-SUFFIX,valorant.dyn.riotcdn.net
+#DOMAIN-SUFFIX,valorant.secure.dyn.riotcdn.net
+#DOMAIN-SUFFIX,wildrift.dyn.riotcdn.net
+#DOMAIN-SUFFIX,wildrift.secure.dyn.riotcdn.net
+#DOMAIN-SUFFIX,xblmodassets2.prod.catalog.playfab.com
 akamai.cdn.steampipe.steamcontent.com
 assets1.xboxlive.com
 assets2.xboxlive.com

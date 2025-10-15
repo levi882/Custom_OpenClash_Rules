@@ -1,2 +1,10 @@
+
+# AUTHOR: Aethersailor
+# NAME: HBO 补充规则
+# REPO: https://github.com/Aethersailor/Custom_OpenClash_Rules
+# 对 blackmatrix7 的 HBO 规则进行补充
+# 建议使用 geosite:hbo
+# 本规则不再更新
+# 规则内容已合并至 v2fly/domain-list-community 
 max.com
 prd.api.discomax.com

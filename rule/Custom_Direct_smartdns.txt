@@ -1,3 +1,318 @@
+
+# ---------------------------------------
+# 115
+# 2025.10.12 分类整理完毕
+# 6V电影网 / add by Telegram user: 鱼 / Date: 2025-10-08 17:51:33
+# 985宇宙盒子官网（steam离线号库） / add by Telegram user: 真怪誕呀 / Date: 2025-08-01 01:20:05
+# =======================================
+# AUTHOR: Aethersailor
+# Akamai CDN
+# BLOG / add by Telegram user: rl / Date: 2025-08-26 20:20:13
+# Bangumi番组计划
+# CG相关资源分享网站 / add by Telegram user: 慧慧 / Date: 2025-08-14 13:51:28
+# DDNS
+# DOMAIN-SUFFIX,ip-api.com 会影响某些 DNS 泄露检测网站的结果，暂时屏蔽
+# Dell
+# Docker 反代 CDN
+# Emby 小雅 相关
+# Emby 直连
+# Emby客户端 / add by Telegram user: Ritz / Date: 2025-08-27 21:36:58
+# E言E语录 / add by Telegram user: 真怪誕呀 / Date: 2025-08-01 01:39:59
+# FLiNG Trainer
+# FinalShell
+# GitHub 反代 CDN
+# GoLink 加速器
+# Hugging Face 镜像
+# IPTV 相关
+# IPTV图标 / add by Telegram user: sanligu / Date: 2025-08-29 18:19:15
+# ImmortalWrt 相关
+# Kaspersky
+# MET全民英语 / add by Telegram user: 真怪誕呀 / Date: 2025-08-01 01:35:49
+# Mc统一登陆通行证 / add by Telegram user: 💡💡 / Date: 2025-09-12 12:22:24
+# MeFun
+# MeFun VIP General 资源
+# MeFun VIP Music 资源
+# MeFun VIP Porn 资源
+# MicroSoft Rewards
+# NAME: Custom_Direct
+# NHK官网 / add by Telegram user: 雪菜 / Date: 2025-09-21 22:03:09
+# NTP Pool Project
+# Online Judge System / add by Telegram user: More / Date: 2025-10-01 22:48:59
+# PR 至 felixonmars/dnsmasq-china-list
+# PR 至 v2fly/domain-list-community
+# REPO: https://github.com/Aethersailor/Custom_OpenClash_Rules
+# Telegram user：Aethersailor / Date:2025-07-21
+# UniGetUI
+# VPS服务商 / add by Telegram user: Saulmini / Date: 2025-07-23 09:20:11
+# Watt Toolkit
+# Windows 网络连接探测
+# Younoplus
+# add by Telegram user: Aethersailor / Date: 2025-07-22 23:46:20
+# add by Telegram user: Aethersailor / Date: 2025-07-23 00:20:38
+# add by Telegram user: Aethersailor / Date: 2025-07-23 16:31:37
+# add by Telegram user: Aethersailor / Date: 2025-07-26 16:01:18
+# add by Telegram user: Aethersailor / Date: 2025-07-27 02:03:58
+# add by Telegram user: Aethersailor / Date: 2025-07-27 02:04:15
+# add by Telegram user: Aethersailor / Date: 2025-07-30 18:11:46
+# add by Telegram user: Aethersailor / Date: 2025-08-02 19:05:18
+# add by Telegram user: Aethersailor / Date: 2025-08-26 19:16:32
+# add by Telegram user: Aethersailor / Date: 2025-09-17 11:19:09
+# add by Telegram user: Aethersailor / Date: 2025-10-05 09:24:40
+# add by Telegram user: Aethersailor / Date:2025-07-21 22:18:39
+# add by Telegram user: Aethersailor / Date:2025-07-22 04:14:28
+# add by Telegram user: Aethersailor / Date:2025-07-22 11:41:34
+# add by Telegram user: Aethersailor / Date:2025-07-22 11:48:39
+# add by Telegram user: Bin / Date: 2025-10-11 19:34:37
+# add by Telegram user: Bin / Date: 2025-10-11 19:35:13
+# add by Telegram user: Blunt / Date: 2025-08-30 04:41:54
+# add by Telegram user: Blunt / Date: 2025-08-30 04:50:19
+# add by Telegram user: Blunt / Date: 2025-08-30 06:04:33
+# add by Telegram user: Blunt / Date: 2025-08-30 06:05:39
+# add by Telegram user: Blunt / Date: 2025-08-30 06:09:51
+# add by Telegram user: Blunt / Date: 2025-08-30 06:21:51
+# add by Telegram user: Blunt / Date: 2025-08-30 16:04:30
+# add by Telegram user: Blunt / Date: 2025-08-30 16:06:21
+# add by Telegram user: Blunt / Date: 2025-08-30 21:57:52
+# add by Telegram user: Blunt / Date: 2025-08-30 22:00:35
+# add by Telegram user: Blunt / Date: 2025-08-30 22:02:06
+# add by Telegram user: Blunt / Date: 2025-08-30 22:04:04
+# add by Telegram user: Blunt / Date: 2025-08-30 22:04:48
+# add by Telegram user: Blunt / Date: 2025-08-30 22:06:02
+# add by Telegram user: Blunt / Date: 2025-08-30 22:06:40
+# add by Telegram user: Blunt / Date: 2025-08-30 22:08:07
+# add by Telegram user: Blunt / Date: 2025-08-30 22:08:34
+# add by Telegram user: Blunt / Date: 2025-08-30 22:09:47
+# add by Telegram user: Coco / Date: 2025-07-23 22:57:01
+# add by Telegram user: Coco / Date: 2025-07-23 22:58:43
+# add by Telegram user: Evan / Date: 2025-07-23 08:45:37
+# add by Telegram user: Evan / Date: 2025-07-23 08:46:35
+# add by Telegram user: Evan / Date: 2025-07-23 08:47:03
+# add by Telegram user: Evan / Date: 2025-07-23 08:50:23
+# add by Telegram user: Holyn / Date: 2025-10-13 23:10:34
+# add by Telegram user: Lailin / Date: 2025-09-14 12:09:49
+# add by Telegram user: Leo / Date:2025-07-22 11:07:09
+# add by Telegram user: P / Date: 2025-07-26 01:45:38
+# add by Telegram user: P / Date: 2025-07-26 01:49:54
+# add by Telegram user: Saulmini / Date: 2025-07-23 09:33:33
+# add by Telegram user: Toby / Date: 2025-08-30 08:11:38
+# add by Telegram user: Yilan / Date: 2025-08-16 09:47:19
+# add by Telegram user: Yongyu / Date: 2025-08-17 01:12:13
+# add by Telegram user: chrysaly / Date: 2025-07-25 11:31:30
+# add by Telegram user: h / Date: 2025-08-27 22:24:19
+# add by Telegram user: kk / Date:2025-07-22 20:32:43
+# add by Telegram user: lu / Date: 2025-10-15 10:18:39
+# add by Telegram user: r / Date: 2025-08-13 23:24:39
+# add by Telegram user: r / Date: 2025-08-14 00:22:00
+# add by Telegram user: ♣️西安娱乐客服【 LuLu】 / Date: 2025-09-04 23:35:09
+# add by Telegram user: 你是 / Date: 2025-07-28 14:03:53
+# add by Telegram user: 你是 / Date: 2025-07-28 14:04:57
+# add by Telegram user: 你是 / Date: 2025-07-28 14:05:38
+# add by Telegram user: 啥也不是 / Date: 2025-10-11 14:33:51
+# add by Telegram user: 法兰西 / Date: 2025-09-22 20:12:53
+# add by Telegram user: 石 / Date: 2025-08-08 22:48:01
+# add by Telegram user: 网猫-工作时间早10-晚11 / Date: 2025-09-10 09:21:45
+# add by Telegram user: 花火 / Date: 2025-08-14 21:01:04
+# cent浏览器论坛网站 / add by Telegram user: li / Date: 2025-08-20 11:59:34
+# fnOS
+# girigirilove在线追番网站 / add by Telegram user: 真怪誕呀 / Date: 2025-08-23 17:26:28
+# iptv源 / add by Telegram user: sanligu / Date: 2025-09-11 19:15:47
+# ip地址查询 / add by Telegram user: Blunt / Date: 2025-08-30 03:17:50
+# ip地址查询 / add by Telegram user: Blunt / Date: 2025-08-30 04:33:30
+# istore / add by Telegram user: rl / Date: 2025-08-17 14:48:32
+# mc投影图下载 / add by Telegram user: Aloys / Date: 2025-09-18 22:43:15
+# msl官网 / add by Telegram user: Giveup. / Date: 2025-07-30 22:13:02
+# pt站劳教所 / add by Telegram user: kevin / Date: 2025-09-22 14:35:53
+# pt站劳教所 / add by Telegram user: kevin / Date: 2025-09-22 14:36:31
+# ros路由表更新 / add by Telegram user: 雪菜 / Date: 2025-09-20 23:14:04
+# sanligu home lab / add by Telegram user: sanligu / Date: 2025-07-29 15:50:35
+# skipped: IP-CIDR,108.174.48.100/32,no-resolve
+# skipped: IP-CIDR,218.78.7.16/32,no-resolve
+# skipped: IP-CIDR,5.5.5.5/32,no-resolve
+# skipped: IP-CIDR,98.126.27.164/32,no-resolve
+# steamcommunity 302
+# steam离线号游戏库 / add by Telegram user: 真怪誕呀 / Date: 2025-07-29 13:59:20
+# x86Pi / add by Telegram user: Aethersailor / Date: 2025-09-08 12:03:12
+# xiaomi.com / add by Telegram user: r / Date: 2025-08-21 18:58:58
+# 一码贵州 / add by Telegram user: SychO / Date: 2025-08-18 01:41:36
+# 一码贵州 / add by Telegram user: SychO / Date: 2025-08-18 01:42:03
+# 三国杀打小抄官网 / add by Telegram user: 真怪誕呀 / Date: 2025-07-29 14:03:56
+# 下载类
+# 专业网站 / add by Telegram user: Aaa / Date: 2025-07-25 22:15:27
+# 个人技术博客 / add by Telegram user: 慧慧 / Date: 2025-08-14 14:02:50
+# 个人网站 / add by Telegram user: Km / Date: 2025-07-23 03:31:58
+# 个人网站 / add by Telegram user: Km / Date:2025-07-22 13:53:32
+# 中国银行香港，如果走代理，会被风控 / add by Telegram user: victory / Date: 2025-09-20 08:33:44
+# 么么辰的游戏百宝箱
+# 九九互动
+# 云手机 / add by Telegram user: hanshan / Date:2025-07-22 10:35:28
+# 云手机 / add by Telegram user: hanshan / Date:2025-07-22 10:36:21
+# 代理网站 / add by Telegram user: 网猫-工作时间早10-晚11 / Date: 2025-09-15 12:34:42
+# 以下域名已提交 PR
+# 以下域名已被 GeoSite 收录，定期删除
+# 以下域名已被收录，计划于 2025.10.6 删除
+# 以下域名已被收录，计划于 2025.11.20 删除
+# 以下域名待提交 PR
+# 以下域名由用户通过机器人添加，无备案且 NS 不属于中国大陆，或者属于 .top 域名
+# 以下是准备向 GeoSite 上游仓库提交 PR 的国内冷门域名，收录后会注释对应内容
+# 以下是应当直连的冷门国内域名规则
+# 企业博客 用的腾讯云cdn 更推荐直连 / add by Telegram user: 🤗 / Date: 2025-07-23 02:33:17
+# 企业网站 / add by Telegram user: mr. / Date: 2025-09-22 23:52:33
+# 佛山一天膳食app / add by Telegram user: Evan / Date: 2025-08-31 16:39:49
+# 作业班喵喵机APP 域名 / add by Telegram user: hjxt / Date: 2025-08-21 09:43:56
+# 儿童学习机 / add by Telegram user: sanligu / Date: 2025-07-29 15:54:04
+# 公益open-webui / add by Telegram user: 真怪誕呀 / Date: 2025-08-23 17:41:37
+# 其他
+# 医疗健康 / add by Telegram user: 闹斯特麻麻 / Date: 2025-07-30 10:07:17
+# 医疗门户 / add by Telegram user: Evan / Date: 2025-09-21 11:45:41
+# 千学云在线教育平台 / add by Telegram user: 木2 / Date: 2025-10-02 15:55:10
+# 千学云教室直播互动平台 / add by Telegram user: 木2 / Date: 2025-10-02 15:52:16
+# 千学教育用于教学直播、互动教学平台 / add by Telegram user: 木2 / Date: 2025-10-02 15:48:43
+# 华盛通 / add by Telegram user: 真怪誕呀 / Date: 2025-08-01 14:45:43
+# 华盛通 / add by Telegram user: 真怪誕呀 / Date: 2025-08-01 14:46:57
+# 华盛通 / add by Telegram user: 真怪誕呀 / Date: 2025-08-01 14:52:47
+# 华盛通 / add by Telegram user: 真怪誕呀 / Date: 2025-08-01 15:12:21
+# 华盛通 / add by Telegram user: 真怪誕呀 / Date: 2025-08-01 15:13:34
+# 华盛通 / add by Telegram user: 真怪誕呀 / Date: 2025-08-01 15:14:53
+# 华盛通 / add by Telegram user: 真怪誕呀 / Date: 2025-08-01 15:15:35
+# 华盛通 / add by Telegram user: 真怪誕呀 / Date: 2025-08-03 12:50:59
+# 南方电网
+# 博客 / add by Telegram user: Aloys / Date: 2025-09-18 22:38:49
+# 卡券交易 / add by Telegram user: 闹斯特麻麻 / Date: 2025-07-30 10:08:28
+# 卡商网站 / add by Telegram user: ✈️ / Date: 2025-10-02 00:39:22
+# 台铃电动车管理 / add by Telegram user: Lailin / Date: 2025-08-28 03:37:02
+# 商务 / add by Telegram user: lu / Date:2025-07-22 14:02:38
+# 国内某骑行设备的网站 / add by Telegram user: 2. / Date: 2025-07-27 23:59:27
+# 国内网站 / add by Telegram user: sanligu / Date: 2025-07-30 20:55:25
+# 培训网站 / add by Telegram user: chrysaly / Date: 2025-07-24 20:29:33
+# 墨督督私域网课 / add by Telegram user: Fruit / Date: 2025-07-29 19:33:49
+# 好太太家居智能控制服务器 / add by Telegram user: Coco / Date: 2025-07-23 22:54:27
+# 媒体类规则
+# 学习网站 / add by Telegram user: Shady / Date: 2025-08-31 16:45:54
+# 学校 / add by Telegram user: lei / Date: 2025-09-20 16:48:58
+# 学校洗衣机APP：悠洗 / add by Telegram user: lei / Date: 2025-09-20 16:47:16
+# 小电视空降助手，跳过 b 站广告 / add by Telegram user: chrysaly / Date: 2025-08-21 14:19:34
+# 希沃学习机
+# 强制直连域名列表，来自个人收集
+# 影视站 / add by Telegram user: Feng Ninger / Date: 2025-08-11 11:55:42
+# 影视站 / add by Telegram user: Feng Ninger / Date: 2025-08-11 11:56:12
+# 律师在线办公平台 / add by Telegram user: Coco / Date: 2025-07-23 22:56:02
+# 微信小程序 / add by Telegram user: EzrAAA / Date: 2025-08-10 19:02:13
+# 微信智能设备控制小程序 / add by Telegram user: 李白 / Date: 2025-09-19 10:15:59
+# 德佟电子科技（上海）有限公司 / add by Telegram user: Evan / Date: 2025-08-21 21:24:11
+# 情侣软件suki / add by Telegram user: e / Date: 2025-08-03 21:01:20
+# 我的世界服务器 / add by Telegram user: 💡💡 / Date: 2025-09-12 12:44:33
+# 我的世界服务器 / add by Telegram user: 💡💡 / Date: 2025-09-16 10:40:27
+# 我的世界游戏服务器 / add by Telegram user: 💡💡 / Date: 2025-09-04 22:56:13
+# 手机系统优化工具网站 / add by Telegram user: 法兰西 / Date: 2025-08-03 16:34:24
+# 招聘网站 / add by Telegram user: Feng Ninger / Date:2025-07-22 13:55:25
+# 换汇小程序 / add by Telegram user: Feng Ninger / Date: 2025-08-13 04:17:49
+# 提供NS工具和个人技术与爱好分享网站 / add by Telegram user: 慧慧 / Date: 2025-08-14 14:09:04
+# 教育 / add by Telegram user: lu / Date:2025-07-22 13:54:28
+# 教育 / add by Telegram user: lu / Date:2025-07-22 14:00:43
+# 教育域名 / add by Telegram user: Feng Ninger / Date:2025-07-22 13:56:06
+# 教育网站 / add by Telegram user: lu / Date: 2025-10-14 20:39:39
+# 教育门户 / add by Telegram user: Evan / Date: 2025-07-23 08:49:00
+# 教育门户 / add by Telegram user: Evan / Date: 2025-07-23 08:49:41
+# 易搜-云盘资源搜索引擎 / add by Telegram user: Fruit / Date: 2025-07-31 11:05:10
+# 易班网是高校教育教学等功能社区 / add by Telegram user: 仔 / Date: 2025-08-16 10:02:18
+# 智慧笑联
+# 更多已被收录的域名，此处未做保留
+# 未泱阅读
+# 机器人添加域名
+# 松下智能家居
+# 极氪APP / add by Telegram user: EzrAAA / Date: 2025-09-06 18:01:14
+# 极氪app / add by Telegram user: EzrAAA / Date: 2025-08-08 18:08:37
+# 林亦AI排行 / add by Telegram user: Lailin / Date: 2025-09-05 20:24:42
+# 樱花内网穿透节点域名 / add by Telegram user: 花火 / Date: 2025-08-24 15:04:10
+# 此规则文件中的域名会定期 PR 至 Geosite 数据库，并删除已被 Geosite 收录的域名，因此请在支持 Geosite 的软件（如 OpenClash）中使用。
+# 民生门户 / add by Telegram user: Evan / Date: 2025-07-23 08:48:17
+# 水族用品 / add by Telegram user: Shady / Date: 2025-09-03 15:39:07
+# 汇丰香港，走代理会被风控 / add by Telegram user: victory / Date: 2025-09-20 08:35:06
+# 海信供应商登录系统 / add by Telegram user: 雪菜 / Date: 2025-09-20 22:52:55
+# 海翔登录
+# 游戏类规则
+# 游戏网站 / add by Telegram user: Leo / Date: 2025-07-23 17:52:55
+# 牛逼云无需富强官网 / add by Telegram user: 真怪誕呀 / Date: 2025-08-23 17:18:18
+# 环球英语多媒体资料库 / add by Telegram user: 真怪誕呀 / Date: 2025-08-01 01:32:58
+# 生死狙击2客户端域名 / add by Telegram user: 花火 / Date: 2025-09-27 00:43:49
+# 电动车管理 / add by Telegram user: Lailin / Date: 2025-08-28 03:36:00
+# 盖世童书的网址 / add by Telegram user: sanligu / Date: 2025-07-29 15:52:19
+# 立林全屋智能 / add by Telegram user: Q / Date: 2025-09-20 05:42:29
+# 笔袋应用 学习网站 / add by Telegram user: Jiajun / Date: 2025-09-11 19:23:53
+# 精准定位 / add by Telegram user: 真怪誕呀 / Date: 2025-08-01 01:47:12
+# 红警重聚 Reunion 2023
+# 纵维立方3d打印 fmd光固化生产厂家 / add by Telegram user: 芒果 / Date: 2025-08-19 03:46:55
+# 绿叶慧购 / add by Telegram user: Neilyo / Date: 2025-09-04 11:36:34
+# 考试培训网站 / add by Telegram user: Wintermute / Date: 2025-08-03 14:50:21
+# 肥羊 All in One
+# 脚本官网 / add by Telegram user: 网猫-工作时间早10-晚11 / Date: 2025-09-08 11:32:11
+# 腾讯云CNB WebIDE / add by Telegram user: y / Date: 2025-09-29 17:11:53
+# 英语训练 / add by Telegram user: More / Date: 2025-10-02 17:20:22
+# 葱米APP家长版 / add by Telegram user: Evan / Date: 2025-08-21 21:23:34
+# 蓝宝石显卡官网 / add by Telegram user: 💡💡 / Date: 2025-08-07 06:58:20
+# 蜜蜂试卷APP 域名 / add by Telegram user: hjxt / Date: 2025-08-21 09:44:58
+# 观看的emby域名 / add by Telegram user: Lilith / Date: 2025-09-05 01:20:55
+# 视频网站 / add by Telegram user: Shady / Date: 2025-08-26 13:07:08
+# 视频网站 / add by Telegram user: hvccff / Date: 2025-10-06 18:30:24
+# 视频网站 / add by Telegram user: jiro / Date:2025-07-22 12:04:55
+# 视频网站 / add by Telegram user: sanligu / Date: 2025-08-03 10:15:19
+# 论坛网站 / add by Telegram user: Shady / Date: 2025-08-25 19:21:52
+# 设计模型网站 / add by Telegram user: 石 / Date:2025-07-22 18:53:50
+# 软件及服务 / add by Telegram user: rl / Date: 2025-08-14 09:47:11
+# 软件类规则
+# 速推客后台管理 / add by Telegram user: 吃吃吃吃 / Date: 2025-09-30 10:39:48
+# 逸掌柜电商软件 / add by Telegram user: Q / Date: 2025-09-20 05:40:16
+# 金融类
+# 问卷星 / add by Telegram user: 法兰西 / Date: 2025-09-17 21:06:29
+# 问道手游聚宝斋app / add by Telegram user: young / Date: 2025-10-08 16:43:02
+# 阿里云域名 / add by Telegram user: EzrAAA / Date: 2025-08-15 22:40:29
+# 阿里云技术 / add by Telegram user: conn / Date: 2025-10-04 23:36:18
+# 雀魂麻将
+# 飞桨AI的base_url / add by Telegram user: 真怪誕呀 / Date: 2025-08-23 17:22:59
+# 馒头
+# 高驰手表app / add by Telegram user: nmd / Date: 2025-07-28 16:21:27
+# 鸿蒙出境易
+# 鸿蒙智行 / add by Telegram user: rl / Date: 2025-08-14 19:33:16
+# 黑苹果屋网站 / add by Telegram user: 李白 / Date: 2025-09-20 01:20:48
+#DOMAIN-SUFFIX,115vod.com
+#DOMAIN-SUFFIX,5ddd.com
+#DOMAIN-SUFFIX,agentyun.com
+#DOMAIN-SUFFIX,astral-vector.com
+#DOMAIN-SUFFIX,benfuip.com
+#DOMAIN-SUFFIX,buy0596.com
+#DOMAIN-SUFFIX,cdkeynogap.com
+#DOMAIN-SUFFIX,chememall.com
+#DOMAIN-SUFFIX,clangcn.com
+#DOMAIN-SUFFIX,cnppa.org
+#DOMAIN-SUFFIX,efzhou.com
+#DOMAIN-SUFFIX,forevernine.com
+#DOMAIN-SUFFIX,fzsybj.com
+#DOMAIN-SUFFIX,giecds.com
+#DOMAIN-SUFFIX,golink.com
+#DOMAIN-SUFFIX,golinkapi.com
+#DOMAIN-SUFFIX,golinkcn.com
+#DOMAIN-SUFFIX,guanyierp.com
+#DOMAIN-SUFFIX,gztowngas.com
+#DOMAIN-SUFFIX,immersivetranslate.com
+#DOMAIN-SUFFIX,jiucaishuo.com
+#DOMAIN-SUFFIX,lvfapiao.com
+#DOMAIN-SUFFIX,mashangfangxin.com
+#DOMAIN-SUFFIX,megawords.cc
+#DOMAIN-SUFFIX,memechen.com
+#DOMAIN-SUFFIX,moyubuluo.com
+#DOMAIN-SUFFIX,psmartcloud.com
+#DOMAIN-SUFFIX,raining.top
+#DOMAIN-SUFFIX,rmbgame.net
+#DOMAIN-SUFFIX,steam302.xyz 
+#DOMAIN-SUFFIX,towngasvcc.com
+#DOMAIN-SUFFIX,tshell.online
+#DOMAIN-SUFFIX,ug.link
+#DOMAIN-SUFFIX,winyoungreading.com
+#DOMAIN-SUFFIX,wowgf.com
+#DOMAIN-SUFFIX,xiaolianhb.com
+#DOMAIN-SUFFIX,xiaoting.com
+#DOMAIN-SUFFIX,xzscjk.com
+#DOMAIN-SUFFIX,xzsmartmetro.com
 *-m-team.*
 *-quickconnect.*
 *-synology.*

@@ -1,0 +1,7 @@
+
+# AUTHOR: Aethersailor
+# NAME: Emby 补充规则
+# REPO: https://github.com/Aethersailor/Custom_OpenClash_Rules
+# 建议使用 geosite:category-emby
+# 本规则不再更新
+# 需要走代理的 Emby 服务的相关规则
