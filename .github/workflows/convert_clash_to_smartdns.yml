@@ -1,4 +1,4 @@
-name: Convert Clash Lists to SmartDNS (Enhanced)
+name: Convert Clash Lists to SmartDNS (Full Enhanced)
 
 on:
   push:
@@ -22,22 +22,64 @@ jobs:
             if [ -f "$file" ]; then
               base_name=$(basename "${file%.list}")
               output="rule/${base_name}_smartdns.txt"
-              echo "Converting $file → $output"
+              echo "::group::Converting $file → $output"
 
-              # 转换逻辑：
-              # DOMAIN-SUFFIX → 后缀匹配
-              # DOMAIN-KEYWORD → SmartDNS 通配符 (*-keyword.*)
-              # DOMAIN → 精确域名
-              awk -F',' '
-                BEGIN {IGNORECASE=1}
-                /^DOMAIN-SUFFIX/  {print $2}
-                /^DOMAIN-KEYWORD/ {print "*-"$2".*"}
-                /^DOMAIN,/        {print $2}
+              # ==========================
+              # 🔧 通用转换逻辑
+              # ==========================
+              awk '
+                BEGIN { IGNORECASE=1 }
+                # full: 表示精确匹配
+                /^full:/ {
+                  sub(/^full:/, "");
+                  print $0;
+                  next
+                }
+
+                # DOMAIN-SUFFIX
+                /^DOMAIN-SUFFIX/ {
+                  split($0,a,",");
+                  print a[2];
+                  next
+                }
+
+                # DOMAIN-KEYWORD
+                /^DOMAIN-KEYWORD/ {
+                  split($0,a,",");
+                  print "*-"a[2]".*";
+                  next
+                }
+
+                # DOMAIN (精确匹配)
+                /^DOMAIN,/ {
+                  split($0,a,",");
+                  print a[2];
+                  next
+                }
+
+                # regexp: 转换为注释保留
+                /^regexp:/ {
+                  sub(/^regexp:/,"");
+                  print "# regexp:"$0;
+                  next
+                }
+
+                # 注释行或空行原样保留
+                /^[[:space:]]*#/ || /^[[:space:]]*$/ {
+                  print $0;
+                  next
+                }
+
+                # 其他未知格式 → 注释掉
+                { print "# skipped: "$0 }
               ' "$file" | sort -u > "$output"
 
-              echo "Generated $output (preview):"
+              # ==========================
+              # 输出预览
+              # ==========================
+              echo "Generated $output (first 10 lines):"
               head -n 10 "$output"
-              echo ""
+              echo "::endgroup::"
               changed=true
             fi
           done
@@ -54,7 +96,7 @@ jobs:
 
           if [ -n "$(git status --porcelain rule/*_smartdns.txt || true)" ]; then
             git add rule/*_smartdns.txt
-            git commit -m "Auto convert Clash lists → SmartDNS format (enhanced wildcard)"
+            git commit -m "Auto convert Clash lists → SmartDNS format (Full Enhanced)"
             git push
           else
             echo "No SmartDNS list changes to commit."
