@@ -1,0 +1,2 @@
+max.com
+prd.api.discomax.com
