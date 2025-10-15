@@ -1,19 +1,22 @@
 # Merged LAN Rules
-# skipped: IP-CIDR,0.0.0.0/8
-# skipped: IP-CIDR,10.0.0.0/8
-# skipped: IP-CIDR,100.64.0.0/10
-# skipped: IP-CIDR,127.0.0.0/8
-# skipped: IP-CIDR,17.0.0.0/8
-# skipped: IP-CIDR,172.16.0.0/12
-# skipped: IP-CIDR,192.168.0.0/16
-# skipped: IP-CIDR,198.18.0.0/16
-# skipped: IP-CIDR,224.0.0.0/4
-# skipped: IP-CIDR,::1/128
-# skipped: IP-CIDR,fc00::/7
-# skipped: IP-CIDR,fe80::/10
+# skipped (CIDR): IP-CIDR,0.0.0.0/8
+# skipped (CIDR): IP-CIDR,10.0.0.0/8
+# skipped (CIDR): IP-CIDR,100.64.0.0/10
+# skipped (CIDR): IP-CIDR,127.0.0.0/8
+# skipped (CIDR): IP-CIDR,17.0.0.0/8
+# skipped (CIDR): IP-CIDR,172.16.0.0/12
+# skipped (CIDR): IP-CIDR,192.168.0.0/16
+# skipped (CIDR): IP-CIDR,198.18.0.0/16
+# skipped (CIDR): IP-CIDR,224.0.0.0/4
+# skipped (CIDR): IP-CIDR,::1/128
+# skipped (CIDR): IP-CIDR,fc00::/7
+# skipped (CIDR): IP-CIDR,fe80::/10
+-.instant.arubanetworks.com
+-.router.asus.com
+-.setmeup.arubanetworks.com
+-.www.asusrouter.com
 acl4.ssr
 hiwifi.com
-instant.arubanetworks.com
 ip6-localhost
 ip6-loopback
 lan
@@ -25,12 +28,9 @@ my.router
 p.to
 peiluyou.com
 phicomm.me
-router.asus.com
 router.ctc
 routerlogin.com
-setmeup.arubanetworks.com
 tendawifi.com
 tplogin.cn
 wifi.cmcc
-www.asusrouter.com
 zte.home

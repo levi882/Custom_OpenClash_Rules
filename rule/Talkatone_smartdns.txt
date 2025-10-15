@@ -1,9 +1,9 @@
 
 # Talkatone
-# skipped: IP-CIDR,205.164.56.0/24,no-resolve
-# skipped: IP-CIDR,50.117.27.0/24,no-resolve
-# skipped: IP-CIDR,63.251.124.0/24,no-resolve
-# skipped: IP-CIDR,69.46.75.0/24,no-resolve
+# skipped (CIDR): IP-CIDR,205.164.56.0/24,no-resolve
+# skipped (CIDR): IP-CIDR,50.117.27.0/24,no-resolve
+# skipped (CIDR): IP-CIDR,63.251.124.0/24,no-resolve
+# skipped (CIDR): IP-CIDR,69.46.75.0/24,no-resolve
 # 原始规则：https://github.com/mottzz87/crules/blob/main/rule/talkatone.list
 # 建议使用 geosite:talkatone
 # 本规则不再更新

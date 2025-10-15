@@ -125,10 +125,10 @@
 # pt站劳教所 / add by Telegram user: kevin / Date: 2025-09-22 14:36:31
 # ros路由表更新 / add by Telegram user: 雪菜 / Date: 2025-09-20 23:14:04
 # sanligu home lab / add by Telegram user: sanligu / Date: 2025-07-29 15:50:35
-# skipped: IP-CIDR,108.174.48.100/32,no-resolve
-# skipped: IP-CIDR,218.78.7.16/32,no-resolve
-# skipped: IP-CIDR,5.5.5.5/32,no-resolve
-# skipped: IP-CIDR,98.126.27.164/32,no-resolve
+# skipped (CIDR): IP-CIDR,108.174.48.100/32,no-resolve
+# skipped (CIDR): IP-CIDR,218.78.7.16/32,no-resolve
+# skipped (CIDR): IP-CIDR,5.5.5.5/32,no-resolve
+# skipped (CIDR): IP-CIDR,98.126.27.164/32,no-resolve
 # steamcommunity 302
 # steam离线号游戏库 / add by Telegram user: 真怪誕呀 / Date: 2025-07-29 13:59:20
 # x86Pi / add by Telegram user: Aethersailor / Date: 2025-09-08 12:03:12

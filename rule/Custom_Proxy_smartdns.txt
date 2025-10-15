@@ -11,8 +11,8 @@
 # PS5 STUN
 # PT 相关
 # REPO: https://github.com/Aethersailor/Custom_OpenClash_Rules
-# skipped: IP-CIDR,1.0.0.1/32,no-resolve
-# skipped: IP-CIDR,1.1.1.1/32,no-resolve
+# skipped (CIDR): IP-CIDR,1.0.0.1/32,no-resolve
+# skipped (CIDR): IP-CIDR,1.1.1.1/32,no-resolve
 # 其他
 # 嵌入式相关
 # 强制代理列表，来自个人收集
