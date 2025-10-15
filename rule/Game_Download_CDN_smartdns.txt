@@ -1,11 +1,3 @@
-^(gog-cdn-fastly(-cp77)?|recommendations-api|sections|galaxy-promos|marketing-sections)\.gog\.com$
-^(lol|ks-foundation|riot-client|mock-game|valorant|wildrift|ares|bacon|ritoplus|global)?(\.secure)?\.dyn\.riotcdn\.net$
-^(pf-cdn-content-prod|khmarketcdn|kittyhawk2-prod|cdn-prod-sr-(live-marketplace-endpoint|live-cds-endpoint|weather))\.azureedge\.net$
-^(xblmodassets2|content[12])\.prod\.catalog\.playfab\.com$
-^[a-z]{2}\.cdn\.blizzard\.com$
-^blzdist-[a-z]{2}([a-z])?\.necdn\.leihuo\.netease\.com$
-^cache\d(\d)?-[a-z]{3}\d\.steamcontent\.com$
-^download[1-9]?\.epicgames\.com$
 akamai.cdn.steampipe.steamcontent.com
 assets1.xboxlive.com
 assets2.xboxlive.com

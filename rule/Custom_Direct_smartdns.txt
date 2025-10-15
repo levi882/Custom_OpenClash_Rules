@@ -1,3 +1,6 @@
+*-m-team.*
+*-quickconnect.*
+*-synology.*
 03241119.xyz
 112114.xyz
 115cdn.de
@@ -167,7 +170,6 @@ longmenshuju.com
 lsbj365.com
 lyihub.com
 lyilife.com
-m-team
 m-team.cc
 m-team.io
 manfuz.co
@@ -215,7 +217,6 @@ qianxuecloud.com
 qianxueyunke.com
 qiaoxuesi.com
 qinglue.com
-quickconnect
 redenmc.com
 registry.dockermirror.com
 rewards.bing.com
@@ -237,7 +238,6 @@ starlink.uno
 stkfanli.com
 suyur.com
 sxlljm.com
-synology
 tailgdd.com
 tangguobaohe.com
 tclai.top
