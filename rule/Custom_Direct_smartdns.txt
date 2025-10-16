@@ -100,6 +100,7 @@
 # add by Telegram user: chrysaly / Date: 2025-07-25 11:31:30
 # add by Telegram user: h / Date: 2025-08-27 22:24:19
 # add by Telegram user: kk / Date:2025-07-22 20:32:43
+# add by Telegram user: lei / Date: 2025-10-16 13:27:16
 # add by Telegram user: lu / Date: 2025-10-15 10:18:39
 # add by Telegram user: r / Date: 2025-08-13 23:24:39
 # add by Telegram user: r / Date: 2025-08-14 00:22:00
@@ -270,6 +271,7 @@
 # 雀魂麻将
 # 飞桨AI的base_url / add by Telegram user: 真怪誕呀 / Date: 2025-08-23 17:22:59
 # 馒头
+# 驾校学时APP / add by Telegram user: lei / Date: 2025-10-16 13:26:35
 # 高驰手表app / add by Telegram user: nmd / Date: 2025-07-28 16:21:27
 # 鸿蒙出境易
 # 鸿蒙智行 / add by Telegram user: rl / Date: 2025-08-14 19:33:16
@@ -400,6 +402,7 @@ freetv.top
 frp-ski.com
 fssbcc.top
 fsytss.com
+fzvcolco.com
 fzwqq.com
 gaishitongshu.com
 game.maj-soul.com
@@ -437,6 +440,7 @@ gsstic.com
 gxnnjidingkeji.top
 gzybao.com
 halvie.com
+haoxueche.com
 hbcof.com
 hbctic.com
 hexiny.com
