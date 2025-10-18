@@ -1,0 +1,68 @@
+name: Sync Upstream
+
+on:
+  schedule:
+    - cron: '30 18 * * *'  # 每天 18:30 UTC = 次日 02:30 上海时间
+  workflow_dispatch:
+    inputs:
+      upstream_repo:
+        description: 'Owner/name of the upstream repository (e.g. user/repo)'
+        required: false
+      upstream_branch:
+        description: 'Branch to sync from (defaults to repo variable or default branch)'
+        required: false
+      destination_branch:
+        description: 'Branch to sync into (defaults to repo variable or default branch)'
+        required: false
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    env:
+      VAR_UPSTREAM_REPO: ${{ vars.UPSTREAM_REPO }}
+      VAR_UPSTREAM_BRANCH: ${{ vars.UPSTREAM_BRANCH }}
+      VAR_DESTINATION_BRANCH: ${{ vars.UPSTREAM_DESTINATION_BRANCH }}
+      DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+      INPUT_UPSTREAM_REPO: ${{ github.event.inputs.upstream_repo }}
+      INPUT_UPSTREAM_BRANCH: ${{ github.event.inputs.upstream_branch }}
+      INPUT_DESTINATION_BRANCH: ${{ github.event.inputs.destination_branch }}
+    steps:
+      - name: Determine configuration
+        id: config
+        run: |
+          set -eo pipefail
+          upstream_repo="${INPUT_UPSTREAM_REPO:-$VAR_UPSTREAM_REPO}"
+          if [ -z "$upstream_repo" ]; then
+            echo "Repository variable UPSTREAM_REPO or workflow input upstream_repo must be set." >&2
+            exit 1
+          fi
+
+          upstream_branch="${INPUT_UPSTREAM_BRANCH:-$VAR_UPSTREAM_BRANCH}"
+          if [ -z "$upstream_branch" ]; then
+            upstream_branch="$DEFAULT_BRANCH"
+          fi
+
+          destination_branch="${INPUT_DESTINATION_BRANCH:-$VAR_DESTINATION_BRANCH}"
+          if [ -z "$destination_branch" ]; then
+            destination_branch="$DEFAULT_BRANCH"
+          fi
+
+          echo "upstream_repo=$upstream_repo" >> "$GITHUB_OUTPUT"
+          echo "upstream_branch=$upstream_branch" >> "$GITHUB_OUTPUT"
+          echo "destination_branch=$destination_branch" >> "$GITHUB_OUTPUT"
+
+      - name: Sync from upstream
+        uses: repo-sync/github-sync@v2
+        with:
+          source_repo: ${{ steps.config.outputs.upstream_repo }}
+          source_branch: ${{ steps.config.outputs.upstream_branch }}
+          destination_branch: ${{ steps.config.outputs.destination_branch }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          sync_tags: true
+
+      - name: Log result
+        run: |
+          echo "Synced ${{ steps.config.outputs.destination_branch }} with ${{ steps.config.outputs.upstream_repo }}:${{ steps.config.outputs.upstream_branch }}"
