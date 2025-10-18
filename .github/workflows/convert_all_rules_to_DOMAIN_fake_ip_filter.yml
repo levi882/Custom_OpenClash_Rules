@@ -21,17 +21,20 @@ jobs:
       TARGET_BRANCH: ${{ inputs.branch != '' && inputs.branch || github.ref_name }}
 
     steps:
+      # 1️⃣ 检出仓库
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
           ref: ${{ env.TARGET_BRANCH }}
           fetch-depth: 0
 
+      # 2️⃣ 设置 Python 环境
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.x"
 
+      # 3️⃣ 执行规则转换脚本
       - name: Convert all rules to DOMAIN fake_ip_filter
         run: |
           python <<'PYCODE'
@@ -72,7 +75,6 @@ jobs:
 
               return None
 
-
           os.makedirs("rule_converted", exist_ok=True)
           files = glob.glob("rule/**/*.yaml", recursive=True) + glob.glob("rule/**/*.list", recursive=True)
 
@@ -103,10 +105,21 @@ jobs:
           print(f"\n🎉 共生成 {total} 个 fake_ip_filter 文件")
           PYCODE
 
+      # 4️⃣ 提交并推送结果（含自动 rebase 保护）
       - name: Commit and push converted results
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          
           git add rule_converted
-          git commit -m "Auto convert to DOMAIN fake_ip_filter" || echo "No changes"
-          git push
+          git commit -m "Auto convert to DOMAIN fake_ip_filter" || echo "No changes to commit."
+
+          echo "🔄 Pulling latest changes from remote before push..."
+          # 防止远程先更新导致 push 被拒绝
+          git pull --rebase origin "${TARGET_BRANCH}" || true
+
+          echo "🚀 Pushing changes to ${TARGET_BRANCH}..."
+          git push origin HEAD:"${TARGET_BRANCH}" || {
+            echo "❌ Push failed after rebase attempt, retrying with force-with-lease..."
+            git push origin HEAD:"${TARGET_BRANCH}" --force-with-lease
+          }
