@@ -1,6 +1,15 @@
 name: Sync and Modify Custom_Clash.ini
 
 on:
+  workflow_call:
+    inputs:
+      branch:
+        required: false
+        type: string
+        default: ''
+    secrets:
+      TARGET_REPO_TOKEN:
+        required: true
   push:
     branches:
       - main
@@ -11,10 +20,15 @@ on:
 jobs:
   sync-and-modify:
     runs-on: ubuntu-latest
+    env:
+      TARGET_BRANCH: ${{ inputs.branch != '' && inputs.branch || github.ref_name }}
     steps:
       # Step 1: 检出源仓库
       - name: Checkout Source Repo
         uses: actions/checkout@v3
+        with:
+          ref: ${{ env.TARGET_BRANCH }}
+          fetch-depth: 0
 
       # Step 2: 克隆目标仓库
       - name: Clone Target Repo

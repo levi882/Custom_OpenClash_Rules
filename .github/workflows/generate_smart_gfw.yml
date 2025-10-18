@@ -1,6 +1,12 @@
 name: Generate Smart GFW INI File
 
 on:
+  workflow_call:
+    inputs:
+      branch:
+        required: false
+        type: string
+        default: ''
   push:
     paths:
       - cfg/Custom_Clash_GFW.ini
@@ -9,10 +15,15 @@ on:
 jobs:
   generate-smart-gfw:
     runs-on: ubuntu-latest
+    env:
+      TARGET_BRANCH: ${{ inputs.branch != '' && inputs.branch || github.ref_name }}
 
     steps:
       - name: Check out repository
         uses: actions/checkout@v3
+        with:
+          ref: ${{ env.TARGET_BRANCH }}
+          fetch-depth: 0
 
       - name: Process GFW ini file and generate smart version
         run: |
@@ -54,8 +65,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          if [[ -n $(git log origin/main..HEAD) ]]; then
-            git push origin HEAD:main
-          else
-            echo "No new commits to push."
-          fi 
+          git push origin HEAD:"${TARGET_BRANCH}"

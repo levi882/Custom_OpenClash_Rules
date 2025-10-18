@@ -1,6 +1,12 @@
 name: Generate YAML Rules
 
 on:
+  workflow_call:
+    inputs:
+      branch:
+        required: false
+        type: string
+        default: ''
   push:
     paths:
       - 'rule/*.list'
@@ -9,10 +15,15 @@ on:
 jobs:
   generate-rules:
     runs-on: ubuntu-latest
+    env:
+      TARGET_BRANCH: ${{ inputs.branch != '' && inputs.branch || github.ref_name }}
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          ref: ${{ env.TARGET_BRANCH }}
+          fetch-depth: 0
 
       - name: Set Git identity
         run: |
@@ -77,8 +88,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          if [[ -n $(git log origin/main..HEAD) ]]; then
-            git push origin HEAD:main
-          else
-            echo "No new commits to push."
-          fi
+          git push origin HEAD:"${TARGET_BRANCH}"

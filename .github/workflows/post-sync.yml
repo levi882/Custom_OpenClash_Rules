@@ -1,0 +1,123 @@
+name: Post Sync Pipeline
+
+on:
+  workflow_run:
+    workflows: ["Sync Upstream"]
+    types:
+      - completed
+
+permissions:
+  contents: write
+
+jobs:
+  guard:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    outputs:
+      changed: ${{ steps.detect.outputs.changed }}
+      branch: ${{ steps.meta.outputs.branch }}
+    steps:
+      - name: Resolve branch
+        id: meta
+        shell: bash
+        run: |
+          branch="${{ github.event.workflow_run.head_branch }}"
+          if [ -z "$branch" ]; then
+            branch="${{ github.event.repository.default_branch }}"
+          fi
+          echo "branch=$branch" >> "$GITHUB_OUTPUT"
+
+      - name: Checkout branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ steps.meta.outputs.branch }}
+          fetch-depth: 0
+
+      - name: Detect new commits
+        id: detect
+        shell: bash
+        run: |
+          set -eo pipefail
+          branch="${{ steps.meta.outputs.branch }}"
+          before="${{ github.event.workflow_run.head_sha }}"
+          git fetch origin "$branch" --depth=1
+          after=$(git rev-parse origin/"$branch")
+          echo "Before: $before"
+          echo "After:  $after"
+          if [ "$after" != "$before" ]; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          fi
+
+  generate-yaml-rules:
+    needs: guard
+    if: ${{ needs.guard.outputs.changed == 'true' }}
+    uses: ./.github/workflows/generate_yaml_rules.yaml
+    with:
+      branch: ${{ needs.guard.outputs.branch }}
+    secrets: inherit
+
+  convert-clash-to-smartdns:
+    needs: generate-yaml-rules
+    if: ${{ needs.guard.outputs.changed == 'true' }}
+    uses: ./.github/workflows/convert_clash_to_smartdns.yml
+    with:
+      branch: ${{ needs.guard.outputs.branch }}
+    secrets: inherit
+
+  convert-domain-fake-ip-filter:
+    needs: convert-clash-to-smartdns
+    if: ${{ needs.guard.outputs.changed == 'true' }}
+    uses: './.github/workflows/convert_all rules_(yaml&list)_to_DOMAIN_fake_ip_filter.yml'
+    with:
+      branch: ${{ needs.guard.outputs.branch }}
+    secrets: inherit
+
+  update-mainland:
+    needs: convert-domain-fake-ip-filter
+    if: ${{ needs.guard.outputs.changed == 'true' }}
+    uses: ./.github/workflows/update_mainland.yml
+    with:
+      branch: ${{ needs.guard.outputs.branch }}
+    secrets: inherit
+
+  generate-smart:
+    needs: update-mainland
+    if: ${{ needs.guard.outputs.changed == 'true' }}
+    uses: ./.github/workflows/generate_smart.yml
+    with:
+      branch: ${{ needs.guard.outputs.branch }}
+    secrets: inherit
+
+  generate-smart-gfw:
+    needs: generate-smart
+    if: ${{ needs.guard.outputs.changed == 'true' }}
+    uses: ./.github/workflows/generate_smart_gfw.yml
+    with:
+      branch: ${{ needs.guard.outputs.branch }}
+    secrets: inherit
+
+  sync-custom-clash:
+    needs: generate-smart-gfw
+    if: ${{ needs.guard.outputs.changed == 'true' }}
+    uses: ./.github/workflows/sync_custom_clash.yml
+    with:
+      branch: ${{ needs.guard.outputs.branch }}
+    secrets: inherit
+
+  push-doc-to-wiki:
+    needs: sync-custom-clash
+    if: ${{ needs.guard.outputs.changed == 'true' }}
+    uses: ./.github/workflows/push-doc-to-wiki.yml
+    with:
+      branch: ${{ needs.guard.outputs.branch }}
+    secrets: inherit
+
+  purge-jsdelivr:
+    needs: push-doc-to-wiki
+    if: ${{ needs.guard.outputs.changed == 'true' }}
+    uses: ./.github/workflows/purge-jsdelivr.yml
+    with:
+      branch: ${{ needs.guard.outputs.branch }}
+    secrets: inherit
