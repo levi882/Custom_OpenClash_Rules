@@ -1,0 +1,98 @@
+name: Convert all rules (yaml & list) to DOMAIN fake_ip_filter
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - "rule/**.yaml"
+      - "rule/**.list"
+  workflow_dispatch:
+
+jobs:
+  convert:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Convert rule-sets to DOMAIN fake_ip_filter
+        run: |
+          import os, re, glob
+
+          def convert_line(line: str):
+              """转换任意行到 domain 模式"""
+              line = line.strip()
+              if not line or line.startswith("#"):
+                  return None
+
+              # 忽略非域名规则
+              if any(x in line for x in [
+                  "IP-CIDR", "SRC-IP-CIDR", "DST-PORT", "SRC-PORT", "GEOIP", "PROCESS-NAME"
+              ]):
+                  return None
+
+              # 去掉 YAML 或 list 的前缀符号
+              line = line.lstrip("-").strip()
+
+              # Clash classical 语法
+              if "," in line:
+                  parts = line.split(",", 1)
+                  rule = parts[0].strip()
+                  value = parts[1].strip()
+                  if rule == "DOMAIN-SUFFIX":
+                      return f".{value}"
+                  elif rule == "DOMAIN":
+                      return value
+                  elif rule == "DOMAIN-KEYWORD":
+                      return f"*{value}*"
+                  else:
+                      return None
+
+              # 纯域名格式（无前缀）
+              # 简单正则验证：只保留合法域名/通配符
+              if re.match(r"^[\*\.\w\-]+(\.[a-zA-Z]{2,})$", line):
+                  return line
+
+              return None
+
+          os.makedirs("rule_converted", exist_ok=True)
+          files = glob.glob("rule/**/*.yaml", recursive=True) + glob.glob("rule/**/*.list", recursive=True)
+          total = 0
+
+          for path in files:
+              with open(path, "r", encoding="utf-8") as f:
+                  lines = f.readlines()
+
+              converted = [convert_line(l) for l in lines]
+              converted = [x for x in converted if x]
+
+              if not converted:
+                  print(f"⚠️ 跳过（无有效域名）: {path}")
+                  continue
+
+              output = "payload:\n" + "\n".join([f"  - {x}" for x in converted]) + "\n"
+
+              new_path = os.path.splitext(path)[0] + "_fake_ip_filter.yaml"
+              new_path = new_path.replace("rule/", "rule_converted/")
+              os.makedirs(os.path.dirname(new_path), exist_ok=True)
+
+              with open(new_path, "w", encoding="utf-8") as f:
+                  f.write(output)
+
+              total += 1
+              print(f"✅ 已转换: {path} -> {new_path}")
+
+          print(f"\n🎉 共生成 {total} 个 fake_ip_filter 文件")
+
+      - name: Commit and push results
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add rule_converted
+          git commit -m "Auto convert to DOMAIN fake_ip_filter (with .list support)" || echo "No changes"
+          git push
