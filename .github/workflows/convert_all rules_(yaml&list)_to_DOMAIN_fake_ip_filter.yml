@@ -1,4 +1,4 @@
-name: Convert all rules (yaml & list) to DOMAIN fake_ip_filter
+name: Convert rules to DOMAIN fake_ip_filter
 
 on:
   push:
@@ -11,6 +11,7 @@ on:
 jobs:
   convert:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -20,12 +21,13 @@ jobs:
         with:
           python-version: "3.x"
 
-      - name: Convert rule-sets to DOMAIN fake_ip_filter
+      - name: Convert all rules to DOMAIN fake_ip_filter
         run: |
+          python <<'PYCODE'
           import os, re, glob
 
           def convert_line(line: str):
-              """转换任意行到 domain 模式"""
+              """将 Clash classical / list 规则行转换为 domain 模式"""
               line = line.strip()
               if not line or line.startswith("#"):
                   return None
@@ -36,10 +38,10 @@ jobs:
               ]):
                   return None
 
-              # 去掉 YAML 或 list 的前缀符号
+              # 去除 YAML 或 list 前缀符号
               line = line.lstrip("-").strip()
 
-              # Clash classical 语法
+              # 处理 classical 规则语法
               if "," in line:
                   parts = line.split(",", 1)
                   rule = parts[0].strip()
@@ -53,17 +55,17 @@ jobs:
                   else:
                       return None
 
-              # 纯域名格式（无前缀）
-              # 简单正则验证：只保留合法域名/通配符
+              # 处理纯域名模式 (.list 文件)
               if re.match(r"^[\*\.\w\-]+(\.[a-zA-Z]{2,})$", line):
                   return line
 
               return None
 
+
           os.makedirs("rule_converted", exist_ok=True)
           files = glob.glob("rule/**/*.yaml", recursive=True) + glob.glob("rule/**/*.list", recursive=True)
-          total = 0
 
+          total = 0
           for path in files:
               with open(path, "r", encoding="utf-8") as f:
                   lines = f.readlines()
@@ -88,11 +90,12 @@ jobs:
               print(f"✅ 已转换: {path} -> {new_path}")
 
           print(f"\n🎉 共生成 {total} 个 fake_ip_filter 文件")
+          PYCODE
 
-      - name: Commit and push results
+      - name: Commit and push converted results
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add rule_converted
-          git commit -m "Auto convert to DOMAIN fake_ip_filter (with .list support)" || echo "No changes"
+          git commit -m "Auto convert to DOMAIN fake_ip_filter" || echo "No changes"
           git push
