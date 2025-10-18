@@ -58,6 +58,7 @@
 # add by Telegram user: Aethersailor / Date: 2025-08-26 19:16:32
 # add by Telegram user: Aethersailor / Date: 2025-09-17 11:19:09
 # add by Telegram user: Aethersailor / Date: 2025-10-05 09:24:40
+# add by Telegram user: Aethersailor / Date: 2025-10-16 18:53:47
 # add by Telegram user: Aethersailor / Date:2025-07-21 22:18:39
 # add by Telegram user: Aethersailor / Date:2025-07-22 04:14:28
 # add by Telegram user: Aethersailor / Date:2025-07-22 11:41:34
@@ -182,6 +183,7 @@
 # 卡商网站 / add by Telegram user: ✈️ / Date: 2025-10-02 00:39:22
 # 台铃电动车管理 / add by Telegram user: Lailin / Date: 2025-08-28 03:37:02
 # 商务 / add by Telegram user: lu / Date:2025-07-22 14:02:38
+# 国内企业地址 / add by Telegram user: cook / Date: 2025-10-16 17:35:12
 # 国内某骑行设备的网站 / add by Telegram user: 2. / Date: 2025-07-27 23:59:27
 # 国内网站 / add by Telegram user: sanligu / Date: 2025-07-30 20:55:25
 # 培训网站 / add by Telegram user: chrysaly / Date: 2025-07-24 20:29:33
@@ -540,12 +542,14 @@ redenmc.com
 registry.dockermirror.com
 rewards.bing.com
 rsfcxq.com
+saduck.top
 sanligu.top
 sapphiretech.com
 scbaijia.com
 seaflysoft.com
 seedpace.com
 sgtv.ii00.cc
+shineacc.com
 shuqiandiqiu.com
 sixloy428.top
 sksight.com
